@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  width: 100%;
+  padding: 0 10%;
+  background-color: var(--color-grey-850);
+}
+
+.logo {
+  color: var(--color-primary-200);
+  font-family: 'Merriweather', sans-serif;
+  font-size: var(--size-5);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.header ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.header li {
+  margin: 0 var(--size-4);
+}
+
+.header a {
+  color: var(--color-grey-100);
+  font-size: var(--size-4);
+  transition: 0.3s ease-in-out;
+}
+
+.header a:hover,
+.header a:active,
+.header a.active {
+  color: var(--color-primary-200);
+}
+
+@media (min-width: 768px) {
+  .header ul {
+    gap: 0.5rem;
+  }
+
+  .header a {
+    font-size: var(--size-5);
+  }
+
+  .logo {
+    font-size: var(--size-8);
+  }
+}
