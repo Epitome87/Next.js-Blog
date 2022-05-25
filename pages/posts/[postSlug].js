@@ -1,7 +1,12 @@
 import React from 'react';
+import PostContent from '../../components/Posts/PostDetail/PostContent';
 
 function PostDetails() {
-  return <div>PostDetails</div>;
+  return (
+    <>
+      <PostContent />
+    </>
+  )
 }
 
 export default PostDetails;
