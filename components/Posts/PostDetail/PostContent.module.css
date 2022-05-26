@@ -2,7 +2,7 @@
   width: 95%;
   max-width: 60rem;
   font-size: var(--size-5);
-  background-color: var(--color-grey-850);
+  background-color: var(--color-grey-800);
   color: var(--color-grey-50);
   line-height: var(--size-8);
   margin: var(--size-8) auto;
@@ -18,6 +18,16 @@
   width: 100%;
   max-width: 600px;
   margin: var(--size-4) auto;
+}
+
+.content ul,
+.content ol {
+  list-style-type: circle;
+}
+
+.content a:link,
+.content a:visited {
+  text-decoration: underline;
 }
 
 @media (min-width: 768px) {

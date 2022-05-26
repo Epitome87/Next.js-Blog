@@ -1,33 +1,62 @@
 import ReactMarkdown from "react-markdown";
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import remarkGfm from 'remark-gfm';
+import Image from 'next/image';
 import PostHeader from "./PostHeader";
 import styles from './PostContent.module.css';
 
-const MOCK_POST = {
-    date: '05-11-2022',
-    title: 'Some Title',
-    slug: 'slug1',
-    image: 'post1.jpg',
-    content: `This is my *first* blog post! It is being written in **Markdown**!
+function PostContent({post}) {
+    const customComponents = {
+        image(image) {
+            return <Image src={`/images/posts/${post.slug}/${image.src}`} alt={image.alt} width={600} height={300} />
+        },
+        code({node, inline, className, children, ...props}) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, '')}
+                style={atomDark}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              />
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            )
+          },
+        p(paragraph) {
+            const { node } = paragraph;
 
-    > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+            if (node.children[0].tagName === 'img') {
+                const image = node.children[0];
 
-    * Here is a random **bulletpoint**
-    * And another
-    * Here's a final bullet point!
-    
-    Here is a table:
-    | Item         | Price     | # In stock |
-    |--------------|-----------|------------|
-    | Juicy Apples | 1.99      | *7*        |
-    | Bananas      | **1.89**  | 5234       |
-    `,
-};
+                const metastring = image.properties.alt
+                const alt = metastring?.replace(/ *\{[^)]*\} */g, "")
+                const metaWidth = metastring.match(/{([^}]+)x/)
+                const metaHeight = metastring.match(/x([^}]+)}/)
+                const width = metaWidth ? metaWidth[1] : "768"
+                const height = metaHeight ? metaHeight[1] : "432"
 
-function PostContent() {
+                return (
+                <div className={styles.image}>
+                    <Image src={`/images/posts/${post.slug}/${image.properties.src}`} alt={image.properties.alt} width={width} height={height} />
+                </div>
+                );
+            }
+
+            return <p>{paragraph.children}</p>
+        }
+    }
     return (
         <article className={styles.content}>
-            <PostHeader title={MOCK_POST.title} image={`/images/posts/${MOCK_POST.slug}/${MOCK_POST.image}`} />
-            <ReactMarkdown>{MOCK_POST.content}</ReactMarkdown>
+            <PostHeader title={post.title} image={`/images/posts/${post.slug}/${post.image}`} />
+            <ReactMarkdown 
+            children={post.content}
+            components={customComponents}
+            remarkPlugins={[remarkGfm]} />
         </article>
     )
 }
