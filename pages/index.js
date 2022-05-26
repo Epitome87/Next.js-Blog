@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import FeaturedPosts from '../components/Home/FeaturedPosts';
 import Hero from '../components/Home/Hero';
-import MOCK_POSTS from '../mockPosts';
+import { getFeaturedPosts } from '../postsUtility';
 
 export default function Home({ posts }) {
   return (
@@ -22,9 +22,12 @@ export default function Home({ posts }) {
 
 export async function getStaticProps(context) {
   // TODO: Fetch posts from a database
+  const featuredPosts = getFeaturedPosts();
+
   return {
     props: {
-      posts: MOCK_POSTS,
+      posts: featuredPosts,
     },
+    revalidate: 1800
   };
 }
