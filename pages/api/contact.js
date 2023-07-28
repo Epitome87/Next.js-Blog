@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { connectDatabase, insertDocument } from '../../databaseUtilities';
+import { connectDatabase, insertDocument } from '../../utils/databaseUtilities';
 
 async function handler(req, res) {
   if (req.method === 'POST') {

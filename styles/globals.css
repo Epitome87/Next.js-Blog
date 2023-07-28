@@ -21,18 +21,18 @@ body {
   --color-grey-900: hsl(240, 11%, 8%);
 
   /* Primary colors -- shades of hsl(346, 100%, 63%); */
-  --color-primary-50: hsl(346, 100%, 88%);
-  --color-primary-100: hsl(346, 100%, 78%);
-  --color-primary-200: hsl(346, 100%, 68%);
-  --color-primary-300: hsl(346, 100%, 58%);
-  --color-primary-400: hsl(346, 100%, 48%);
-  --color-primary-500: hsl(346, 100%, 38%);
-  --color-primary-600: hsl(346, 100%, 28%);
-  --color-primary-700: hsl(346, 100%, 18%);
-  --color-primary-800: hsl(346, 100%, 8%);
+  --color-primary-50: hsl(346, 100%, 90%);
+  --color-primary-100: hsl(346, 100%, 85%);
+  --color-primary-200: hsl(346, 100%, 75%);
+  --color-primary-300: hsl(346, 100%, 63%);
+  --color-primary-400: hsl(346, 100%, 55%);
+  --color-primary-500: hsl(346, 100%, 45%);
+  --color-primary-600: hsl(346, 100%, 35%);
+  --color-primary-700: hsl(346, 100%, 28%);
+  --color-primary-800: hsl(346, 100%, 15%);
 
-  --color-success-100: hsl(213, 94%, 78%)
-  --color-success-500: hsl(213, 94%, 58%)
+  --color-success-100: hsl(213, 94%, 78%);
+  --color-success-500: hsl(213, 94%, 58%);
 
   --color-error-100: #f1acc9;
   --color-error-500: #a10c4a;
@@ -67,8 +67,28 @@ a:visited {
 }
 
 button {
-  font: inherit;
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
   cursor: pointer;
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  border: 3px solid var(--color-primary-300);
+  color: var(--color-grey-100);
+  background-color: transparent;
+  box-shadow: 0px 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+  transition: 0.15s ease-in-out;
+}
+
+button:focus,
+button:hover {
+    background-color: var(--color-primary-300);
+}
+
+button:active {
+    transform: scale(0.975);
+    box-shadow: 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
 }
 
 img {

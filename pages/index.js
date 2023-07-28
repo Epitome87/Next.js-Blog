@@ -7,9 +7,8 @@ export default function Home({ posts }) {
   return (
     <div>
       <Head>
-        <title>Matthew's Next.js Blog</title>
+        <title>Matthews Next.js Blog</title>
         <meta name='description' content='Where Matthew blogs about web development!' />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>
@@ -28,6 +27,6 @@ export async function getStaticProps(context) {
     props: {
       posts: featuredPosts,
     },
-    revalidate: 1800
+    revalidate: 1800,
   };
 }

@@ -1,4 +1,4 @@
-import { connectToDatabase } from '../../../utils/databaseUtilities';
+import { connectDatabase } from '../../../utils/databaseUtilities';
 import { hashPassword } from '../../../utils/authUtilities';
 
 async function handler(req, res) {
@@ -13,7 +13,7 @@ async function handler(req, res) {
     return res.status(422).json({ message: 'Invalid user input' });
   }
 
-  const client = await connectToDatabase();
+  const client = await connectDatabase();
   const db = client.db();
 
   const hashedPassword = await hashPassword(password);

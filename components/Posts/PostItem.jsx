@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import styles from './PostItem.module.css';
 
 function PostItem({ post }) {
@@ -19,7 +19,7 @@ function PostItem({ post }) {
       <Link href={`/posts/${slug}`}>
         <a>
           <div className={styles.image}>
-            <Image src={imagePath} alt={title} width={300} height={200} layout='responsive' />
+            <img src={imagePath} alt={title} width={300} height={200} layout='responsive' />
           </div>
           <div className={styles.content}>
             <h3>{title}</h3>

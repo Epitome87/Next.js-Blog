@@ -7,7 +7,7 @@ function Posts({ posts }) {
   return (
     <>
       <Head>
-        <title>Matthew's Posts</title>
+        <title>Matthews Posts</title>
         <meta name='description' content='A list of all my posts' />
       </Head>
       <AllPosts posts={posts} />;

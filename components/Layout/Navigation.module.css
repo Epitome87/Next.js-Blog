@@ -9,7 +9,7 @@
 }
 
 .logo {
-  color: var(--color-primary-200);
+  color: var(--color-primary-300);
   font-family: 'Merriweather', sans-serif;
   font-size: var(--size-5);
   font-weight: bold;
@@ -34,7 +34,7 @@
 .header a:hover,
 .header a:active,
 .header a.active {
-  color: var(--color-primary-200);
+  color: var(--color-primary-300);
 }
 
 @media (min-width: 768px) {

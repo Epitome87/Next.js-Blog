@@ -86,31 +86,35 @@ function ContactForm() {
     <section className={styles.contact}>
       <h1>How can I help you?</h1>
       <form className={styles.form} onSubmit={handleSubmitForm}>
-        <div className={styles.controls}>
-          <div className={styles.control}>
-            <label htmlFor='email'>Your Email</label>
-            <input type='email' id='email' required value={email} onChange={(event) => setEmail(event.target.value)} />
-          </div>
-          <div className={styles.control}>
-            <label htmlFor='name'>Your Name</label>
-            <input type='text' id='name' required value={name} onChange={(event) => setName(event.target.value)} />
-          </div>
-        </div>
-        <div className={styles.control}>
-          <label htmlFor='message'>Your Message</label>
-          <textarea
-            name='message'
-            id='message'
-            cols='30'
-            rows='5'
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-          ></textarea>
-        </div>
+        <div className={styles['form__row']}>
+          <input
+            type='email'
+            id='email'
+            required
+            placeholder='Your Email'
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
 
-        <div className={styles.actions}>
-          <button type='submit'>Send Message</button>
+          <input
+            type='text'
+            id='name'
+            required
+            placeholder='Your Name'
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
         </div>
+        <textarea
+          name='message'
+          id='message'
+          cols='30'
+          rows='5'
+          placeholder='Your Message'
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+        ></textarea>
+        <button type='submit'>Send Message</button>
       </form>
       {notification && (
         <Notification status={notification.status} title={notification.title} message={notification.message} />

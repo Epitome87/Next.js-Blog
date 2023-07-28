@@ -12,6 +12,7 @@
 .header h1 {
   font-size: var(--size-8);
   color: var(--color-primary-300);
+  color: var(--color-success-100);
   margin: 0;
   line-height: initial;
   text-align: center;

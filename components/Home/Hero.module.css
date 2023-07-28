@@ -5,7 +5,7 @@
 }
 
 .image {
-  background-color: var(--color-primary-200);
+  background-color: var(--color-primary-300);
   height: 300px;
   width: 300px;
   margin: auto;

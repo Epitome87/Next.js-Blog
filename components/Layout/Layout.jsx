@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Layout.module.css';
+import Footer from './Footer';
 import Navigation from './Navigation';
 
 function Layout({ children }) {
@@ -7,6 +7,7 @@ function Layout({ children }) {
     <>
       <Navigation />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
